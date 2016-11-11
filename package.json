@@ -1,0 +1,19 @@
+{
+  "name": "weekend-challenge-3",
+  "version": "1.0.0",
+  "description": "Calculator for Prime's 3rd Weekend Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hisaac/PRIME_calculator.git"
+  },
+  "author": "Isaac Halvorson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hisaac/PRIME_calculator/issues"
+  },
+  "homepage": "https://github.com/hisaac/PRIME_calculator#readme"
+}
