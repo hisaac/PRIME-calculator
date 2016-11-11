@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Calculator</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="scripts/client.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="text/javascript" src="../vendor/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/client.js"></script>
   </head>
   <body>
     <h1>Calculate!</h1>
@@ -20,7 +20,12 @@
         <input type="number" id="secondValue" name="secondValue" value ="0" required/>
       </p>
 
-      <p><input type="submit" value="CALCULATE" class="addPartButton"/></p>
+      <p>
+        <input type="submit" id="addButton" value="Add +"/>
+        <input type="submit" id="subtractButton" value="Subtract -"/>
+        <input type="submit" id="multiplyButton" value="Multiply ×"/>
+        <input type="submit" id="divideButton" value="Divide ÷"/>
+      </p>
 
       <div id="result"></div>
 
