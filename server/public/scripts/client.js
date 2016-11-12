@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  // listens for click of a number button
+  $('.number-button').on('click', function(){
+    event.preventDefault();
+    appendNumber(this);
+  });
+
   // listens for click of an operation button
   $('.operate').on('click', function(){
     event.preventDefault();
@@ -13,7 +19,17 @@ $(document).ready(function () {
   });
 });
 
-//gets values from dom
+// appends number to readout field
+function appendNumber (element) {
+  button = $(element).text();
+  if (button === '.' && $('#readout').val().indexOf('.') < 0){
+    $('#readout').val($('#readout').val() + button);
+  } else if (button !== '.'){
+    $('#readout').val($('#readout').val() + button);
+  }
+}
+
+// gets values from dom
 function getValues(operation){
   var toCalculate = {};
   toCalculate.type = operation.getAttribute('id');
