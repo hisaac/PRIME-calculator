@@ -1,49 +1,60 @@
 $(document).ready(function () {
-  $('button').on('click', function(){
+  // listens for click of an operation button
+  $('.operate').on('click', function(){
     event.preventDefault();
-    console.log('event:', event);
-    console.log('this:', this);
+    sendValues(getValues(this));
+  });
+
+  // clears form when 'clear' button is pressed
+  $('#clear').on('click', function(){
+    event.preventDefault();
+    document.getElementById("calculator").reset();
+    $('#result').empty();
   });
 });
 
-// function performCalculation(event){
-//   event.preventDefault();
-//   console.log('event:', event);
-//   console.log('this:', this);
-  // getValues();
-  // sendValues(num1, num2);
-// }
+//gets values from dom
+function getValues(operation){
+  var toCalculate = {};
+  toCalculate.type = operation.getAttribute('id');
 
-// //gets values from dom
-// function getValues(){
-//
-// }
-//
-// // sends values to server for calculation
-// function sendValues(num1, num2){
-//   $.ajax({
-//     type: 'POST',
-//     url: '/calculate',
-//     success: function(req, res){
-//       req.send(num1, num2);
-//     },
-//     error: function(){
-//       alert('there was an error');
-//     }
-//   });
-// }
-//
-// // gets answer from server
-// function getAnswer(){
-//   $.ajax({
-//     type: 'GET',
-//     url: '/calculate',
-//     success: function(req, res){},
-//     error: function(){}
-//   });
-// }
-//
-// // appends answer to dom
-// function appendAnswer(){
-//
-// }
+  $.each($('form').serializeArray(), function(i, field){
+    toCalculate[field.name] = field.value;
+  });
+
+  return toCalculate;
+}
+
+// sends values to server for calculation
+function sendValues(toCalculate){
+  $.ajax({
+    type: 'POST',
+    url: '/calculate/' + toCalculate.type,
+    data: toCalculate,
+    success: function(data){
+      getAnswer();
+    },
+    error: function(error){
+      alert('There was an error when sending your data to the server.', error);
+    }
+  });
+}
+
+// gets answer from server
+function getAnswer(){
+  $.ajax({
+    type: 'GET',
+    url: '/calculate',
+    success: function(data){
+      appendAnswer(data);
+    },
+    error: function(error){
+      console.log('There was an error retrieving your data from the server.', error);
+    }
+  });
+}
+
+// appends answer to dom
+function appendAnswer(answer){
+  $('#result').text('Answer = ' + answer.value);
+}
