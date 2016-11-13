@@ -13,5 +13,5 @@ app.use(bodyParser.json());
 app.use('/calculate', calculate);
 app.use('/', index);
 
-app.listen(port);
+app.listen(process.env.PORT || port)
 console.log("Listening on port: ", port);
