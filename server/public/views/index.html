@@ -4,40 +4,46 @@
     <meta charset="utf-8">
     <title>Calculator</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <script type="text/javascript" src="../vendor/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../vendor/bootstrap.js"></script>
     <script type="text/javascript" src="../scripts/client.js"></script>
   </head>
   <body>
-    <h1>Calculate!</h1>
-    <form id="calculator">
-      <p>
-        <input type="text" id="readout" name="readout" required/>
-      </p>
+    <div class="container">
+      <form id="calculator">
+        <div class="row">
+          <input type="text" id="readout" name="readout" required class="col-md-4"/>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary col-md-3"id="clear">Clear</button>
+          <button class="btn btn-primary operate col-md-1" id="divide">÷</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-default number-button col-md-1" id="seven">7</button>
+          <button class="btn btn-default number-button col-md-1" id="eight">8</button>
+          <button class="btn btn-default number-button col-md-1" id="nine">9</button>
+          <button class="btn btn-primary operate col-md-1" id="multiply">×</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-default number-button col-md-1" id="four">4</button>
+          <button class="btn btn-default number-button col-md-1" id="five">5</button>
+          <button class="btn btn-default number-button col-md-1" id="six">6</button>
+          <button class="btn btn-primary operate col-md-1" id="subtract">-</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-default number-button col-md-1" id="one">1</button>
+          <button class="btn btn-default number-button col-md-1" id="two">2</button>
+          <button class="btn btn-default number-button col-md-1" id="three">3</button>
+          <button class="btn btn-primary operate col-md-1" id="add">+</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-default number-button col-md-2" id="zero">0</button>
+          <button class="btn btn-default number-button col-md-1" id="decimal">.</button>
+          <button class="btn btn-primary operate col-md-1" id="equals">=</button>
+        </div>
 
-      <p id="numberButtons">
-        <button class="number-button" id="zero">0</button>
-        <button class="number-button" id="one">1</button>
-        <button class="number-button" id="two">2</button>
-        <button class="number-button" id="three">3</button>
-        <button class="number-button" id="four">4</button>
-        <button class="number-button" id="five">5</button>
-        <button class="number-button" id="six">6</button>
-        <button class="number-button" id="seven">7</button>
-        <button class="number-button" id="eight">8</button>
-        <button class="number-button" id="nine">9</button>
-        <button class="number-button" id="decimal">.</button>
-      </p>
-
-      <p id="operations">
-        <button class="operate" id="add">Add +</button>
-        <button class="operate" id="subtract">Subtract -</button>
-        <button class="operate" id="multiply">Multiply ×</button>
-        <button class="operate" id="divide">Divide ÷</button>
-        <button id="clear">Clear</button>
-      </p>
-
-      <div id="result"></div>
-
-    </form>
+      </form>
+    </div>
   </body>
 </html>
